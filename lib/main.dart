@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:najlepsze_jedzenie/app/home/home_page.dart';
+import 'package:najlepsze_jedzenie/app/login/login_page.dart';
 import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -8,7 +10,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -38,17 +40,9 @@ class RootPage extends StatelessWidget {
         builder: (context, snapshot) {
           final user = snapshot.data;
           if (user == null) {
-            return const Scaffold(
-              body: Center(
-                child: Text('jesteś niezalogowany'),
-              ),
-            );
+            return LoginPage();
           }
-          return Scaffold(
-            body: Center(
-              child: Text('jesteś zalogowany jako ${user.email} '),
-            ),
-          );
+          return HomePage(user: user);
         });
   }
 }
