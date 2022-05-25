@@ -19,15 +19,16 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.lightGreen,
       body: Builder(builder: (context) {
         if (currentIndex == 0) {
           return Center(
-            child: Text('Raz'),
+            child: Text('Filamenty'),
           );
         }
         if (currentIndex == 1) {
           return Center(
-            child: Text('Dwa'),
+            child: Text('Dodaj swoją opinie o filemencie'),
           );
         }
 
@@ -64,8 +65,8 @@ class _HomePageState extends State<HomePage> {
           },
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.rate_review_rounded),
-              label: 'Opinie',
+              icon: Icon(Icons.blur_circular_rounded),
+              label: 'Filamenty',
             ),
             BottomNavigationBarItem(icon: Icon(Icons.add_box), label: 'Dodaj'),
             BottomNavigationBarItem(
