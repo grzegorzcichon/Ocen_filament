@@ -28,8 +28,8 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(isCreatingAccount == true
-                  ? 'zarejestruj się'
-                  : 'zaloguj się'),
+                  ? 'Zarejestruj się'
+                  : 'Zaloguj się'),
               const SizedBox(height: 20),
               TextField(
                 controller: widget.emailController,
@@ -71,8 +71,8 @@ class _LoginPageState extends State<LoginPage> {
                   }
                 },
                 child: Text(isCreatingAccount == true
-                    ? 'zarejestruj się'
-                    : 'zaloguj się'),
+                    ? 'Zarejestruj się'
+                    : 'Zaloguj się'),
               ),
               const SizedBox(height: 20),
               if (isCreatingAccount == false) ...[
@@ -82,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                       isCreatingAccount = true;
                     });
                   },
-                  child: const Text('utwórz konto'),
+                  child: const Text('Utwórz konto'),
                 ),
               ],
               if (isCreatingAccount == true) ...[
