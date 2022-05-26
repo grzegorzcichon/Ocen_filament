@@ -19,16 +19,41 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Builder(
+          builder: (context) {
+            if (currentIndex == 0) {
+              return Text('Jaki filament', style: GoogleFonts.courgette());
+            }
+
+            if (currentIndex == 1) {
+              return Text('Dodaj drukarkę', style: GoogleFonts.courgette());
+            }
+
+            if (currentIndex == 2) {
+              var text =
+                  Text('Twój panel sterowania', style: GoogleFonts.courgette());
+              return text;
+            }
+            return Center();
+          },
+        ),
+      ),
       backgroundColor: Colors.lightGreen,
       body: Builder(builder: (context) {
         if (currentIndex == 0) {
           return Center(
-            child: Text('Filamenty'),
+            child: Text('Dodaj swoją opinie o filamencie',
+                style: GoogleFonts.courgette()),
           );
         }
         if (currentIndex == 1) {
           return Center(
-            child: Text('Dodaj swoją opinie o filemencie'),
+            child: Text(
+              'Dodaj swoją opinie o drukarce 3D',
+              style: GoogleFonts.courgette(),
+            ),
           );
         }
 
@@ -68,7 +93,8 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(Icons.blur_circular_rounded),
               label: 'Filamenty',
             ),
-            BottomNavigationBarItem(icon: Icon(Icons.add_box), label: 'Dodaj'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.add_box), label: 'Drukarki'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.co_present_rounded), label: 'Moje konto'),
           ]),

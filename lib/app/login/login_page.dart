@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({
@@ -21,6 +22,13 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('elo mordo');
+        },
+        backgroundColor: Colors.green[400],
+        child: const Text('?'),
+      ),
       backgroundColor: Colors.yellow[200],
       body: Center(
         child: Padding(
