@@ -10,7 +10,10 @@ class FilamentsPageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-        stream: FirebaseFirestore.instance.collection('Filament').snapshots(),
+        stream: FirebaseFirestore.instance
+            .collection('Filament')
+            .orderBy('rating', descending: true)
+            .snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return const Center(child: Text('Wystąpił błąd...'));

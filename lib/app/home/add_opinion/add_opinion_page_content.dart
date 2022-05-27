@@ -13,6 +13,7 @@ class AddFilamentPageContent extends StatefulWidget {
 class _AddFilamentPageContentState extends State<AddFilamentPageContent> {
   var producentName = '';
   var filamentName = '';
+  var rating = 3.0;
 
   @override
   Widget build(BuildContext context) {
@@ -40,12 +41,24 @@ class _AddFilamentPageContentState extends State<AddFilamentPageContent> {
               });
             },
           ),
+          Slider(
+            onChanged: (newValue) {
+              setState(() {
+                rating = newValue;
+              });
+            },
+            value: rating,
+            min: 1.0,
+            max: 6.0,
+            divisions: 10,
+            label: rating.toString(),
+          ),
           ElevatedButton(
             onPressed: () {
               FirebaseFirestore.instance.collection('Filament').add({
                 'name': producentName,
                 'material': filamentName,
-                'rating': 4.0,
+                'rating': rating,
               });
             },
             child: const Text('Dodaj'),
