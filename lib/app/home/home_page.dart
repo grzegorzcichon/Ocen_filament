@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:najlepsze_jedzenie/app/home/add_opinion/add_opinion_page_content.dart';
+import 'package:najlepsze_jedzenie/app/home/filaments/filaments_page_conten.dart';
+import 'package:najlepsze_jedzenie/app/home/my_account/my_account_page_content.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -36,50 +39,24 @@ class _HomePageState extends State<HomePage> {
                   Text('Twój panel sterowania', style: GoogleFonts.courgette());
               return text;
             }
-            return Center();
+            return const Center();
           },
         ),
       ),
       backgroundColor: Colors.lightGreen,
       body: Builder(builder: (context) {
         if (currentIndex == 0) {
-          return Center(
-            child: Text('Dodaj swoją opinie o filamencie',
-                style: GoogleFonts.courgette()),
+          return const Center(
+            child: FilamentsPageContent(),
           );
         }
         if (currentIndex == 1) {
-          return Center(
-            child: Text(
-              'Dodaj swoją opinie o drukarce 3D',
-              style: GoogleFonts.courgette(),
-            ),
+          return const Center(
+            child: AddFilamentPageContent(),
           );
         }
 
-        return Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('Jesteś zalogowany jako ${widget.user.email} '),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                  onPressed: () {
-                    FirebaseAuth.instance.signOut();
-                  },
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.red),
-                      padding:
-                          MaterialStateProperty.all(const EdgeInsets.all(10)),
-                      textStyle: MaterialStateProperty.all(
-                          const TextStyle(fontSize: 15))),
-                  child: Text(
-                    'Wyloguj',
-                    style: GoogleFonts.domine(),
-                  )),
-            ],
-          ),
-        );
+        return MyAccountPageContent(email: widget.user.email);
       }),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: currentIndex,
