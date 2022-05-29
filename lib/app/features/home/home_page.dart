@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:najlepsze_jedzenie/app/home/add_opinion/add_opinion_page_content.dart';
-import 'package:najlepsze_jedzenie/app/home/filaments/filaments_page_conten.dart';
-import 'package:najlepsze_jedzenie/app/home/my_account/my_account_page_content.dart';
+import 'package:Ocen_filament/app/features/home/add_opinion/add_opinion_page_content.dart';
+import 'package:Ocen_filament/app/features/home/filaments/filaments_page_conten.dart';
+import 'package:Ocen_filament/app/features/home/my_account/my_account_page_content.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
             }
 
             if (currentIndex == 1) {
-              return Text('Dodaj opinie i filamencie',
+              return Text('Dodaj opinie o filamencie',
                   style: GoogleFonts.courgette());
             }
 
@@ -72,10 +72,11 @@ class _HomePageState extends State<HomePage> {
               label: 'Filamenty',
             ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.add_box), label: 'Drukarki'),
+                icon: Icon(Icons.add_box), label: 'Dodaj ocenę'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.co_present_rounded), label: 'Moje konto'),
-          ]),
+          ],
+          backgroundColor: Colors.blue[100]),
     );
   }
 }

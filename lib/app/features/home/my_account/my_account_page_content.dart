@@ -1,6 +1,8 @@
+import 'package:Ocen_filament/app/cubit/root_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyAccountPageContent extends StatelessWidget {
   const MyAccountPageContent({
@@ -20,7 +22,7 @@ class MyAccountPageContent extends StatelessWidget {
           const SizedBox(height: 20),
           ElevatedButton(
               onPressed: () {
-                FirebaseAuth.instance.signOut();
+                context.read<RootCubit>().singOut();
               },
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.red),
