@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
             }
 
             if (currentIndex == 1) {
-              return Text('Dodaj opinie i filamencie',
+              return Text('Dodaj opinie o filamencie',
                   style: GoogleFonts.courgette());
             }
 
