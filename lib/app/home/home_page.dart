@@ -27,11 +27,12 @@ class _HomePageState extends State<HomePage> {
         title: Builder(
           builder: (context) {
             if (currentIndex == 0) {
-              return Text('Jaki filament', style: GoogleFonts.courgette());
+              return Text('Oceny filamentu', style: GoogleFonts.courgette());
             }
 
             if (currentIndex == 1) {
-              return Text('Dodaj drukarkę', style: GoogleFonts.courgette());
+              return Text('Dodaj opinie i filamencie',
+                  style: GoogleFonts.courgette());
             }
 
             if (currentIndex == 2) {

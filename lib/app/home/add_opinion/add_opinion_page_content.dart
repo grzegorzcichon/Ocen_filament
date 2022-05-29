@@ -42,7 +42,9 @@ class _AddFilamentPageContentState extends State<AddFilamentPageContent> {
             },
           ),
           Slider(
-            onChanged: (newValue) {
+            onChanged: (
+              newValue,
+            ) {
               setState(() {
                 rating = newValue;
               });
