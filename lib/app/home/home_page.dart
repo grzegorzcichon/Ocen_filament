@@ -72,10 +72,11 @@ class _HomePageState extends State<HomePage> {
               label: 'Filamenty',
             ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.add_box), label: 'Drukarki'),
+                icon: Icon(Icons.add_box), label: 'Dodaj ocenę'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.co_present_rounded), label: 'Moje konto'),
-          ]),
+          ],
+          backgroundColor: Colors.blue[100]),
     );
   }
 }

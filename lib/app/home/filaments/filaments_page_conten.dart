@@ -1,5 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:Ocen_filament/app/home/filaments/cubit/filaments_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FilamentsPageContent extends StatelessWidget {
@@ -9,20 +10,18 @@ class FilamentsPageContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-        stream: FirebaseFirestore.instance
-            .collection('Filament')
-            .orderBy('rating', descending: true)
-            .snapshots(),
-        builder: (context, snapshot) {
-          if (snapshot.hasError) {
-            return const Center(child: Text('Wystąpił błąd...'));
+    return BlocProvider(
+      create: (context) => FilamentsCubit()..start(),
+      child: BlocBuilder<FilamentsCubit, FilamentsState>(
+        builder: (context, state) {
+          if (state.errorMessage.isNotEmpty) {
+            return Center(child: Text('Wystąpił błąd: ${state.errorMessage}'));
           }
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: Text('Trwa ładowanie danych'));
+          if (state.isLoading) {
+            return const Center(child: CircularProgressIndicator());
           }
 
-          final documents = snapshot.data!.docs;
+          final documents = state.documents;
 
           return ListView(
             children: [
@@ -47,6 +46,8 @@ class FilamentsPageContent extends StatelessWidget {
               ],
             ],
           );
-        });
+        },
+      ),
+    );
   }
 }
