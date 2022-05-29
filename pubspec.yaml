@@ -1,4 +1,4 @@
-name: najlepsze_jedzenie
+name: Ocen_filament
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -38,6 +38,7 @@ dependencies:
   firebase_auth: ^3.3.18
   google_fonts: ^3.0.1
   cloud_firestore: ^3.1.17
+  flutter_bloc: ^8.0.1
 
 dev_dependencies:
   flutter_test:
