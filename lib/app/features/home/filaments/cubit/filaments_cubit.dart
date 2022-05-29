@@ -1,7 +1,9 @@
 import 'dart:async';
 
+// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+// ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
 
 part 'filaments_state.dart';
@@ -41,7 +43,7 @@ class FilamentsCubit extends Cubit<FilamentsState> {
       ..onError((error) {
         emit(
           FilamentsState(
-            documents: [],
+            documents: const [],
             isLoading: false,
             errorMessage: error.toString(),
           ),
